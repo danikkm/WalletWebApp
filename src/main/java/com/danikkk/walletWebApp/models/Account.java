@@ -1,14 +1,22 @@
 package com.danikkk.walletWebApp.models;
 
 
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.persistence.Id;
 
-@Document(collection = "account")
+//@TypeAlias(value = "Account")
+@NoArgsConstructor
+@Document(collection = "accounts")
 public class Account {
     @Id
     private String id;
+
+    @Field(name = "user_id")
+    private String userId;
     private String name;
     private String type;
     private String currency;
@@ -19,6 +27,14 @@ public class Account {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -49,6 +65,7 @@ public class Account {
     public String toString() {
         return "Account{" +
                 "id='" + id + '\'' +
+                ", userId='" + userId + '\'' +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", currency='" + currency + '\'' +

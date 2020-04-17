@@ -1,5 +1,6 @@
 package com.danikkk.walletWebApp.controllers;
 
+import com.danikkk.walletWebApp.models.Account;
 import com.danikkk.walletWebApp.services.UserService;
 import com.danikkk.walletWebApp.models.User;
 import lombok.NoArgsConstructor;
@@ -23,11 +24,17 @@ public class UserController {
         return userService.findAll();
     }
 
-    @GetMapping(value = "/users/username/{userName}")
-    public User getUserByUserName(@PathVariable("userName") String userName) {
-        System.out.println(userService.findByUserName(userName));
-        return userService.findByUserName(userName);
+    @GetMapping(value = "/users/username/{username}")
+    public User getUserByUsername(@PathVariable("username") String username) {
+        System.out.println(userService.findByUsername(username));
+        return userService.findByUsername(username);
     }
+
+//    @GetMapping(value = "/users/accounts/{username}")
+//    public List<User> getAccountsByUserId(@PathVariable("username") String username) {
+//        System.out.println(userService.findAccountsByUsername(username));
+//        return userService.findAccountsByUsername(username);
+//    }
 
     @GetMapping(value = "/users/email/{email}")
     public User getUserByEmail(@PathVariable("email") String email) {
@@ -44,16 +51,15 @@ public class UserController {
         return userService.findAllByOrderById();
     }
 
-
     @PostMapping(value = "/users")
     public ResponseEntity<?> saveOrUpdateUser(@RequestBody User user) {
         userService.saveOrUpdateUser(user);
         return new ResponseEntity<>("User added successfully", HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/users/{userName}")
-    public void deleteUser(@PathVariable String userName) {
-        userService.deleteUser(userService.findByUserName(userName).getId());
+    @DeleteMapping(value = "/users/{username}")
+    public void deleteUser(@PathVariable String username) {
+        userService.deleteUser(userService.findByUsername(username).getId());
     }
 
 }

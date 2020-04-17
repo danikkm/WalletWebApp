@@ -1,5 +1,6 @@
 package com.danikkk.walletWebApp.implementations;
 
+import com.danikkk.walletWebApp.models.Account;
 import com.danikkk.walletWebApp.models.User;
 import com.danikkk.walletWebApp.repositories.UserRepository;
 import com.danikkk.walletWebApp.services.UserService;
@@ -21,9 +22,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findByUserName(String userName) {
-        return userRepository.findByUserName(userName);
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
+
+//    @Override
+//    public List<Account> findAccountsByUsername(String username) {
+//        return userRepository.findAccountsByUsername(username);
+//    }
 
     @Override
     public User findByEmail(String email) {

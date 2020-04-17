@@ -1,7 +1,10 @@
 package com.danikkk.walletWebApp.models;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -11,18 +14,21 @@ import java.util.List;
 /*
 https://medium.com/javarevisited/building-a-rest-service-with-spring-boot-and-mongodb-3aa5cd2dce73
 */
-@Document(collection = "user")
-
+//@TypeAlias(value = "User")
+@Document(collection = "users")
+@NoArgsConstructor
 public class User {
 
     @Id
     private String id;
-    private String userName;
+    @Field(name = "username")
+    private String username;
     private String password;
     private String email;
     private String name;
     private String surname;
-    private List<String> userList;
+    @DBRef
+    private List<Account> accounts;
 
     public String getId() {
         return id;
@@ -32,12 +38,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -72,24 +78,26 @@ public class User {
         this.surname = surname;
     }
 
-    public List<String> getUserList() {
-        return userList;
+    public List<Account> getAccounts() {
+        return accounts;
     }
 
-    public void setUserList(List<String> userList) {
-        this.userList = userList;
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 
     @Override
     public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", username='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", userList=" + userList +
-                '}';
+        ObjectMapper mapper = new ObjectMapper();
+
+        String jsonString = "";
+        try {
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            jsonString = mapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        return jsonString;
     }
 }
