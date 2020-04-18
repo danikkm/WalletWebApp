@@ -1,8 +1,7 @@
 package com.danikkk.walletWebApp.controllers;
 
-import com.danikkk.walletWebApp.models.Account;
-import com.danikkk.walletWebApp.services.UserService;
 import com.danikkk.walletWebApp.models.User;
+import com.danikkk.walletWebApp.services.UserService;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,8 +25,8 @@ public class UserController {
 
     @GetMapping(value = "/users/username/{username}")
     public User getUserByUsername(@PathVariable("username") String username) {
-        System.out.println(userService.findByUsername(username));
-        return userService.findByUsername(username);
+        System.out.println(userService.findFirstByUsername(username));
+        return userService.findFirstByUsername(username);
     }
 
 //    @GetMapping(value = "/users/accounts/{username}")
@@ -59,7 +58,7 @@ public class UserController {
 
     @DeleteMapping(value = "/users/{username}")
     public void deleteUser(@PathVariable String username) {
-        userService.deleteUser(userService.findByUsername(username).getId());
+        userService.deleteUser(userService.findFirstByUsername(username).getId());
     }
 
 }

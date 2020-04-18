@@ -4,11 +4,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import lombok.NoArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Document(collection = "users")
@@ -17,14 +17,28 @@ public class User {
 
     @Id
     private String id;
-    @Field(name = "username")
+    @NotNull
+    @Indexed(unique = true)
     private String username;
+    @NotNull
     private String password;
+    @NotNull
+    @Indexed(unique = true)
     private String email;
+    @NotNull
     private String name;
+    @NotNull
     private String surname;
-    @DBRef
     private List<Account> accounts;
+
+    public User(String username, String password, String email, String name, String surname, List<Account> accounts) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.name = name;
+        this.surname = surname;
+        this.accounts = accounts;
+    }
 
     public String getId() {
         return id;
