@@ -1,0 +1,49 @@
+{
+  "title": "Shopping",
+  "subcategories": [
+    {
+      "id": 1,
+      "title": "Clothes & shoes"
+    },
+    {
+      "id": 2,
+      "title": "Jewels, accessories"
+    },
+    {
+      "id": 3,
+      "title": "Health and beauty"
+    },
+    {
+      "id": 4,
+      "title": "Kids"
+    },
+    {
+      "id": 5,
+      "title": "Home, garden"
+    },
+    {
+      "id": 6,
+      "title": "Pets, animals"
+    },
+    {
+      "id": 7,
+      "title": "Electronics, accessories"
+    },
+    {
+      "id": 8,
+      "title": "Gifts, joy"
+    },
+    {
+      "id": 9,
+      "title": "Stationery, tools"
+    },
+    {
+      "id": 10,
+      "title": "Free time"
+    },
+    {
+      "id": 11,
+      "title": "Drug-store, chemist"
+    }
+  ]
+}

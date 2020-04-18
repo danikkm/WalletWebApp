@@ -1,0 +1,49 @@
+{
+  "title": "Income",
+  "subcategories": [
+    {
+      "id": 1,
+      "title": "Wage, invoices"
+    },
+    {
+      "id": 2,
+      "title": "Interests, dividends"
+    },
+    {
+      "id": 3,
+      "title": "Sale"
+    },
+    {
+      "id": 4,
+      "title": "Rental income"
+    },
+    {
+      "id": 5,
+      "title": "Dues & grants"
+    },
+    {
+      "id": 6,
+      "title": "Lending, renting"
+    },
+    {
+      "id": 7,
+      "title": "Checks, coupons"
+    },
+    {
+      "id": 8,
+      "title": "Lottery, gambling"
+    },
+    {
+      "id": 9,
+      "title": "Refund (tax, purchase)"
+    },
+    {
+      "id": 10,
+      "title": "Child Support"
+    },
+    {
+      "id": 11,
+      "title": "Gifts"
+    }
+  ]
+}

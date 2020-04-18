@@ -1,0 +1,21 @@
+{
+  "title": "Communication, PC",
+  "subcategories": [
+    {
+      "id": 1,
+      "title": "Phone, cell phone"
+    },
+    {
+      "id": 2,
+      "title": "Internet"
+    },
+    {
+      "id": 3,
+      "title": "Software, apps, games"
+    },
+    {
+      "id": 4,
+      "title": "Postal services"
+    }
+  ]
+}

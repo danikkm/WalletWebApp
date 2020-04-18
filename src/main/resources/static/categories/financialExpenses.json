@@ -1,0 +1,33 @@
+{
+  "title": "Financial expenses",
+  "subcategories": [
+    {
+      "id": 1,
+      "title": "Taxes"
+    },
+    {
+      "id": 2,
+      "title": "Insurances"
+    },
+    {
+      "id": 3,
+      "title": "Load, interests"
+    },
+    {
+      "id": 4,
+      "title": "Fines"
+    },
+    {
+      "id": 5,
+      "title": "Advisory"
+    },
+    {
+      "id": 6,
+      "title": "Charges, Fees"
+    },
+    {
+      "id": 7,
+      "title": "Child support"
+    }
+  ]
+}

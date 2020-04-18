@@ -11,10 +11,6 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import javax.persistence.Id;
 import java.util.List;
 
-/*
-https://medium.com/javarevisited/building-a-rest-service-with-spring-boot-and-mongodb-3aa5cd2dce73
-*/
-//@TypeAlias(value = "User")
 @Document(collection = "users")
 @NoArgsConstructor
 public class User {

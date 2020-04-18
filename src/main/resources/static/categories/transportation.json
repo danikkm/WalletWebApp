@@ -1,0 +1,21 @@
+{
+  "title": "Transportation",
+  "subcategories": [
+    {
+      "id": 1,
+      "title": "Public transport"
+    },
+    {
+      "id": 2,
+      "title": "Taxi"
+    },
+    {
+      "id": 3,
+      "title": "Long distance"
+    },
+    {
+      "id": 4,
+      "title": "Business trips"
+    }
+  ]
+}

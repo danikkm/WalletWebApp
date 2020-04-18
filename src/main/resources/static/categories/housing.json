@@ -1,0 +1,29 @@
+{
+  "title": "Housing",
+  "subcategories": [
+    {
+      "id": 1,
+      "title": "Rent"
+    },
+    {
+      "id": 2,
+      "title": "Mortgage"
+    },
+    {
+      "id": 3,
+      "title": "Energy, utilities"
+    },
+    {
+      "id": 4,
+      "title": "Services"
+    },
+    {
+      "id": 5,
+      "title": "Maintenance, repairs"
+    },
+    {
+      "id": 6,
+      "title": "Property insurance"
+    }
+  ]
+}

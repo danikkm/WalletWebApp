@@ -1,0 +1,57 @@
+{
+  "title": "Life & Entertainment",
+  "subcategories": [
+    {
+      "id": 1,
+      "title": "Health care, doctor"
+    },
+    {
+      "id": 2,
+      "title": "Wellness, beauty"
+    },
+    {
+      "id": 3,
+      "title": "Active sport, fitness"
+    },
+    {
+      "id": 4,
+      "title": "Culture, sport events"
+    },
+    {
+      "id": 5,
+      "title": "Life events"
+    },
+    {
+      "id": 6,
+      "title": "Hobbies"
+    },
+    {
+      "id": 7,
+      "title": "Education, development"
+    },
+    {
+      "id": 8,
+      "title": "Books, audio, subscriptions"
+    },
+    {
+      "id": 9,
+      "title": "TV, Streaming"
+    },
+    {
+      "id": 10,
+      "title": "Holiday, trips, hotels"
+    },
+    {
+      "id": 11,
+      "title": "Charity, gifts"
+    },
+    {
+      "id": 12,
+      "title": "Alcohol, tobacco"
+    },
+    {
+      "id": 13,
+      "title": "Lottery, gambling"
+    }
+  ]
+}
