@@ -1,11 +1,7 @@
 package com.danikkk.walletWebApp;
 
-import com.danikkk.walletWebApp.models.Account;
-import com.danikkk.walletWebApp.models.Category;
-import com.danikkk.walletWebApp.models.Subcategory;
 import com.danikkk.walletWebApp.services.LedgerService;
 import com.danikkk.walletWebApp.services.UserService;
-import com.danikkk.walletWebApp.utils.CategoryUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -34,24 +30,19 @@ public class WalletWebAppApplication implements CommandLineRunner {
 //		System.out.println(userService.findFirstByUsername("user1").getAccounts().stream()
 //				.filter(account -> account.getName()
 //						.contentEquals("Swedbank")).findFirst().orElse(null));
-		Account specificAccount = userService.findFirstByUsername("user1").getAccounts().stream()
-				.filter(account -> account.getName()
-						.contentEquals("Swedbank")).findFirst().orElse(null);
+//		Account specificAccount = userService.findFirstByUsername("user1").getAccounts().stream()
+//				.filter(account -> account.getName()
+//						.contentEquals("Swedbank")).findFirst().orElse(null);
 
-		Category category = CategoryUtil.getCategoryFromJson("foodAndDrinks.json");
-//		System.out.println(category.getSubcategories().stream().filter(subcategory -> subcategory.getTitle()
-//				.contentEquals("Groceries")).findFirst().orElse(null));
 
-		Subcategory groceries = category.getSubcategories().stream().filter(subcategory -> subcategory.getTitle()
-				.contentEquals("Groceries")).findFirst().orElse(null);
-
+		System.out.println(userService.findUserByAccountId("4LrBi4W"));
+		System.out.println(userService.findAllAccountsByUsername("user1"));
 
 //		ledgerService.saveOrUpdateLedger(new Ledger(groceries, specificAccount
-//				, "exp", "Maxima", "Food and stuff"
+//				, "expense", "Maxima", "Food and stuff"
 //				, CurrentDateAndTime.getCurrentDateAndTime(), 67.20));
-		System.out.println(ledgerService.findAll());
-		System.out.println(ledgerService.findByTransactionType("inc"));
-		System.out.println(ledgerService.findByTransactionType("exp"));
+//		System.out.println(ledgerService.findAll());
+//		System.out.println(ledgerService.findByTransactionType("expense"));
 
 	}
 

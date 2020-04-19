@@ -1,5 +1,6 @@
 package com.danikkk.walletWebApp.controllers;
 
+import com.danikkk.walletWebApp.models.Account;
 import com.danikkk.walletWebApp.models.User;
 import com.danikkk.walletWebApp.services.UserService;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,11 +31,15 @@ public class UserController {
         return userService.findFirstByUsername(username);
     }
 
-//    @GetMapping(value = "/users/accounts/{username}")
-//    public List<User> getAccountsByUserId(@PathVariable("username") String username) {
-//        System.out.println(userService.findAccountsByUsername(username));
-//        return userService.findAccountsByUsername(username);
-//    }
+    @GetMapping(value = "/accounts/{username}")
+    public List<Account> getAccountsByUsername(@PathVariable("username") String username) {
+        return userService.findAllAccountsByUsername(username);
+    }
+
+    @GetMapping(value = "/users/accountId/{accountId}")
+    public User getUserByAccountId(@PathVariable("accountId") String id) {
+        return userService.findUserByAccountId(id);
+    }
 
     @GetMapping(value = "/users/email/{email}")
     public User getUserByEmail(@PathVariable("email") String email) {
@@ -59,6 +65,12 @@ public class UserController {
     @DeleteMapping(value = "/users/{username}")
     public void deleteUser(@PathVariable String username) {
         userService.deleteUser(userService.findFirstByUsername(username).getId());
+    }
+
+    @PutMapping(value = "/users/{username}")
+    public ResponseEntity<?> addAccountToUser(@RequestBody @Valid Account account, @PathVariable("username") String username) {
+        userService.putAccountInUserAccounts(username, account);
+        return new ResponseEntity<>("Account added successfully", HttpStatus.OK);
     }
 
 }

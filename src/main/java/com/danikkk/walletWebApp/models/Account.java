@@ -1,20 +1,20 @@
 package com.danikkk.walletWebApp.models;
 
 
+import com.danikkk.walletWebApp.utils.IdGenerator;
+
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 //@TypeAlias(value = "Account")
 public class Account {
     @Id
-    @NotNull
     private String id;
     private String name;
     private String type;
     private String currency;
 
-    public Account(String id, String name, String type, String currency) {
-        this.id = id;
+    public Account(String name, String type, String currency) {
+        this.id = IdGenerator.generateRandomStringId(7);
         this.name = name;
         this.type = type;
         this.currency = currency;

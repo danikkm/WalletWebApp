@@ -4,6 +4,7 @@ import com.danikkk.walletWebApp.models.Account;
 import com.danikkk.walletWebApp.models.Ledger;
 import com.danikkk.walletWebApp.models.Subcategory;
 import com.danikkk.walletWebApp.repositories.LedgerRepository;
+import com.danikkk.walletWebApp.repositories.UserRepository;
 import com.danikkk.walletWebApp.services.LedgerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,9 @@ public class LedgerServiceImpl implements LedgerService {
 
     @Autowired
     private LedgerRepository ledgerRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public List<Ledger> findAll() {

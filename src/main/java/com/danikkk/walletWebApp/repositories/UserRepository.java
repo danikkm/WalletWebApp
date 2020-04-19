@@ -2,6 +2,7 @@ package com.danikkk.walletWebApp.repositories;
 
 import com.danikkk.walletWebApp.models.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,7 +16,8 @@ public interface UserRepository extends MongoRepository<User, String> {
 
     List<User> findAllByOrderById();
 
-//    User putAccountInUserAccounts(int String, Account account);
+    @Query("{'accounts._id':?0}")
+    User findByAccountId(String id);
 
 }
 
