@@ -3,25 +3,25 @@ package com.danikkk.walletWebApp.controllers;
 import com.danikkk.walletWebApp.models.Account;
 import com.danikkk.walletWebApp.models.User;
 import com.danikkk.walletWebApp.services.UserService;
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@NoArgsConstructor
 @RequestMapping("/api")
 public class UserController {
     @Autowired
     private UserService userService;
 
     @GetMapping(value = "/users")
-    public List<User> getAllUsers() {
+    @CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5000"})
+    public Collection<User> getAllUsers() {
         return userService.findAll();
     }
 
@@ -32,6 +32,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/accounts/{username}")
+    @CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5000"})
     public List<Account> getAccountsByUsername(@PathVariable("username") String username) {
         return userService.findAllAccountsByUsername(username);
     }
