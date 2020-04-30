@@ -3,11 +3,9 @@ package com.danikkk.walletWebApp.models;
 
 import com.danikkk.walletWebApp.utils.IdGenerator;
 
-import javax.persistence.Id;
-
 //@TypeAlias(value = "Account")
 public class Account {
-    @Id
+
     private String id;
     private String name;
     private String type;

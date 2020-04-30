@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
@@ -17,18 +18,20 @@ public class User {
 
     @Id
     private String id;
-    @NotNull
+    @Field
+    @NotNull(message = "User's username must not be null")
     @Indexed(unique = true)
     private String username;
-    @NotNull
+    @NotNull(message = "User's password must not be null")
     private String password;
-    @NotNull
+    @NotNull(message = "User's email must not be null")
     @Indexed(unique = true)
     private String email;
-    @NotNull
+    @NotNull(message = "User's name must not be null")
     private String name;
-    @NotNull
+    @NotNull(message = "User's surname must not be null")
     private String surname;
+    @NotNull(message = "User's accounts must not be null")
     private List<Account> accounts;
 
     public User(String username, String password, String email, String name, String surname, List<Account> accounts) {

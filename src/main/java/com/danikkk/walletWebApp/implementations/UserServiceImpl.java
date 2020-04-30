@@ -12,7 +12,6 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -40,8 +39,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findById(String id) {
-        return userRepository.findById(id);
+    public User findFirstById(String id) {
+        return userRepository.findFirstById(id);
     }
 
     @Override

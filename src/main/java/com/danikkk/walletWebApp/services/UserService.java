@@ -4,14 +4,13 @@ import com.danikkk.walletWebApp.models.Account;
 import com.danikkk.walletWebApp.models.User;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService {
     List<User> findAll();
 
     User findFirstByUsername(String username);
 
-    Optional<User> findById(String id);
+    User findFirstById(String id);
 
     User findByEmail(String email);
 

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -48,8 +47,10 @@ public class UserController {
     }
 
     @GetMapping(value = "/users/id/{id}")
-    public Optional<User> getUserById(@PathVariable("id") String id) {
-        return userService.findById(id);
+    @CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5000"})
+    public User getUserById(@PathVariable("id") String id) {
+        System.out.println(id);
+        return userService.findFirstById(id);
     }
 
     @GetMapping(value = "/users/orderById")
